@@ -30,7 +30,7 @@ test_qubit.iden(q[0])
 # q10_0: |0>┤ X ├
 #           └───┘
 # Passing the circuit that we want to execute that is Identy gate on zero vector.
-# Parameter#1 The circuit that is X vector applied on zero vector.
+# Parameter#1 The circuit that is X gate applied on zero vector.
 # Parameter#2 statevector_simulator
 
 # Applying Y gate on zero vector.
@@ -38,8 +38,25 @@ test_qubit.iden(q[0])
 # q15_0: |0>┤ Y ├
 #           └───┘
 # Passing the circuit that we want to execute that is Identy gate on zero vector.
-# Parameter#1 The circuit that is Y vector applied on zero vector.
+# Parameter#1 The circuit that is Y gate applied on zero vector.
 # Parameter#2 statevector_simulator
+
+# Applying Z gate on zero vector.
+#           ┌───┐
+# q25_0: |0>┤ Z ├
+#           └───┘
+# Passing the circuit that we want to execute that is Identy gate on zero vector.
+# Parameter#1 The circuit that is Z gate applied on zero vector.
+# Parameter#2 statevector_simulator
+
+# Applying Z gate on zero vector.
+#           ┌───┐
+# q26_0: |0>┤ H ├
+#           └───┘
+# Passing the circuit that we want to execute that is Identy gate on zero vector.
+# Parameter#1 The circuit that is Hadamard gate applied on zero vector.
+# Parameter#2 statevector_simulator
+
 job = execute(test_qubit, S_simulator)
 result = job.result()
 # Following is the reposne that we will get on running the command
@@ -83,6 +100,29 @@ result = job.result()
 #     success=True, time_taken=6.530900000000001e-05)], status='COMPLETED', success=True,
 #     time_taken=0.002366781234741211)
 
+# Result(backend_name='statevector_simulator', backend_version='0.4.1', date=datetime.datetime
+#    (2020, 3, 20, 13, 41, 32, 247533), header=Obj(backend_name='statevector_simulator',
+#    backend_version='0.4.1'), job_id='a7e79818-5e9e-433b-940e-e273a3d5ced2', metadata=
+#    {'max_memory_mb': 16081, 'omp_enabled': True, 'parallel_experiments': 1, 'time_taken': 0.000135251},
+#    qobj_id='aa5e1df1-d91c-428a-96e0-3d57c44e350f', results=[ExperimentResult(data=ExperimentResultData
+#    (statevector=array([ 1.+0.j, -0.+0.j])), header=Obj(clbit_labels=[], creg_sizes=[],
+#    memory_slots=0, n_qubits=1, name='circuit48', qreg_sizes=[['q25', 1]], qubit_labels=[['q25', 0]]),
+#    meas_level=<MeasLevel.CLASSIFIED: 2>, metadata={'parallel_shots': 1, 'parallel_state_update': 8},
+#    seed_simulator=972440256, shots=1, status='DONE', success=True, time_taken=6.585400000000001e-05)],
+#    status='COMPLETED', success=True, time_taken=0.0024645328521728516)
+
+# Result(backend_name='statevector_simulator', backend_version='0.4.1', date=datetime.datetime
+#   (2020, 3, 20, 13, 47, 42, 969272), header=Obj(backend_name='statevector_simulator',
+#   backend_version='0.4.1'), job_id='96594da5-e448-4128-b719-70658a12af4a', metadata=
+#   {'max_memory_mb': 16081, 'omp_enabled': True, 'parallel_experiments': 1, 'time_taken':
+#   0.00019117100000000002}, qobj_id='8cf0f1e1-3997-4ee9-919a-90c7935b482d',
+#   results=[ExperimentResult(data=ExperimentResultData(statevector=array([0.70710678+0.j,
+#   0.70710678+0.j])), header=Obj(clbit_labels=[], creg_sizes=[], memory_slots=0, n_qubits=1,
+#   name='circuit50', qreg_sizes=[['q26', 1]], qubit_labels=[['q26', 0]]),
+#   meas_level=<MeasLevel.CLASSIFIED: 2>, metadata={'parallel_shots': 1, 'parallel_state_update': 8},
+#   seed_simulator=774939852, shots=1, status='DONE', success=True, time_taken=9.7342e-05)],
+#   status='COMPLETED', success=True, time_taken=0.0033273696899414062)
+
 # Iden Gate Result
 # result.get_statevector()
 # array([1.+0.j, 0.+0.j]) Is the result on excuting the circuit.
@@ -94,3 +134,11 @@ result = job.result()
 # Y-Gate Result
 # result.get_statevector()
 # array([0.+0.j, 0.+1.j]) Is the result on excuting the circuit.
+
+# Z-Gate Result
+# result.get_statevector()
+# array([1.+0.j, 0.+0.j]) Is the result on excuting the circuit.
+
+# H-Gate Result
+# result.get_statevector()
+# array([0.70710678+0.j, 0.70710678+0.j]) Is the result on excuting the circuit.
