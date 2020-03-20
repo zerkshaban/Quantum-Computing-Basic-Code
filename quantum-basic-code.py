@@ -18,7 +18,7 @@ test_qubit = QuantumCircuit(q)
 # q6_0: |0>
 test_qubit.iden(q[0])
 # Applying indenty matrix on zero vector.
-#           ┌────┐
+#          ┌────┐
 # q6_0: |0>┤ Id ├
 #          └────┘
 # Passing the circuit that we want to execute that is Identy gate on zero vector.
